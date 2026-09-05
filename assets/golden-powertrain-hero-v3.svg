@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="t d">
+<title id="t">Electric powertrain: battery, inverter and PMSM drive</title>
+<desc id="d">Original technical vector illustration of an electric vehicle battery pack, traction inverter and permanent magnet synchronous motor on a dark golden engineering background.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#171006"/><stop offset=".5" stop-color="#2b1a06"/><stop offset="1" stop-color="#0f0d0a"/></linearGradient>
+  <radialGradient id="halo"><stop stop-color="#ffcf57" stop-opacity=".36"/><stop offset="1" stop-color="#ffbf24" stop-opacity="0"/></radialGradient>
+  <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f6e4a8"/><stop offset=".18" stop-color="#8e8a7e"/><stop offset=".45" stop-color="#2c3337"/><stop offset=".72" stop-color="#92948f"/><stop offset="1" stop-color="#21272b"/></linearGradient>
+  <linearGradient id="steel2" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#bbc1c1"/><stop offset=".5" stop-color="#454d52"/><stop offset="1" stop-color="#1d252a"/></linearGradient>
+  <linearGradient id="copper" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffd35a"/><stop offset=".32" stop-color="#f29019"/><stop offset=".72" stop-color="#a44c0b"/><stop offset="1" stop-color="#ffd56d"/></linearGradient>
+  <linearGradient id="cell" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#737b7e"/><stop offset=".6" stop-color="#30383d"/><stop offset="1" stop-color="#161d21"/></linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#ffb71b"/><stop offset=".45" stop-color="#ffe588"/><stop offset="1" stop-color="#d78b09"/></linearGradient>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%"><feGaussianBlur in="SourceAlpha" stdDeviation="18"/><feOffset dy="18"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .45 0"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M100 0H0V100" fill="none" stroke="#f6c65d" stroke-opacity=".08" stroke-width="1"/></pattern>
+</defs>
+<rect width="1600" height="900" rx="44" fill="url(#bg)"/>
+<rect width="1600" height="900" rx="44" fill="url(#grid)"/>
+<ellipse cx="800" cy="360" rx="740" ry="360" fill="url(#halo)"/>
+<path d="M0 810C360 620 600 900 940 720S1350 620 1600 690" fill="none" stroke="#f8b51a" stroke-opacity=".25" stroke-width="2"/>
+<path d="M0 770C350 600 640 850 980 685S1370 610 1600 650" fill="none" stroke="#f8b51a" stroke-opacity=".14" stroke-width="2"/>
+
+<!-- energy bus -->
+<path d="M470 410 C560 410 570 365 650 365" fill="none" stroke="#fff0a2" stroke-width="13" opacity=".18" filter="url(#glow)"/>
+<path d="M470 410 C560 410 570 365 650 365" fill="none" stroke="url(#gold)" stroke-width="6"/>
+<path d="M955 365 C1045 365 1050 410 1132 410" fill="none" stroke="#fff0a2" stroke-width="13" opacity=".18" filter="url(#glow)"/>
+<path d="M955 365 C1045 365 1050 410 1132 410" fill="none" stroke="url(#gold)" stroke-width="6"/>
+<g fill="#ffd359"><path d="M540 385l18 13-18 13z"/><path d="M570 385l18 13-18 13z"/><path d="M1024 385l18 13-18 13z"/><path d="M1054 385l18 13-18 13z"/></g>
+
+<!-- battery -->
+<g transform="translate(75 235)" filter="url(#shadow)">
+  <path d="M20 85L55 48h340l42 36v245l-36 34H50L20 330z" fill="#161c20" stroke="#d6aa42" stroke-width="3"/>
+  <rect x="50" y="82" width="350" height="240" rx="18" fill="url(#steel2)" stroke="#8c8f8c" stroke-width="3"/>
+  <g transform="translate(70 105)">
+    <g fill="url(#cell)" stroke="#c7c8bd" stroke-opacity=".45" stroke-width="2">
+      <rect width="58" height="178" rx="7"/><rect x="62" width="58" height="178" rx="7"/><rect x="124" width="58" height="178" rx="7"/><rect x="186" width="58" height="178" rx="7"/><rect x="248" width="58" height="178" rx="7"/>
+    </g>
+    <g fill="#d9c07a"><rect x="12" y="16" width="34" height="5" rx="2"/><rect x="74" y="16" width="34" height="5" rx="2"/><rect x="136" y="16" width="34" height="5" rx="2"/><rect x="198" y="16" width="34" height="5" rx="2"/><rect x="260" y="16" width="34" height="5" rx="2"/></g>
+  </g>
+  <path d="M355 160c36 0 42 22 60 22" fill="none" stroke="#ff8d1e" stroke-width="13" stroke-linecap="round"/>
+  <path d="M356 189c35 0 45 20 61 20" fill="none" stroke="#c95308" stroke-width="10" stroke-linecap="round"/>
+  <rect x="392" y="156" width="35" height="60" rx="8" fill="#20282d" stroke="#a89151" stroke-width="3"/>
+  <path d="M34 110h20M34 140h20M34 170h20M34 200h20M34 230h20M34 260h20" stroke="#7f8789" stroke-width="5"/>
+  <g fill="#f6c84f"><circle cx="48" cy="59" r="6"/><circle cx="404" cy="60" r="6"/><circle cx="45" cy="345" r="6"/><circle cx="406" cy="345" r="6"/></g>
+</g>
+
+<!-- inverter -->
+<g transform="translate(610 225)" filter="url(#shadow)">
+  <path d="M34 70L72 35h270l45 40v288l-38 35H66l-40-36V80z" fill="url(#steel2)" stroke="#cfaa58" stroke-width="3"/>
+  <rect x="70" y="78" width="274" height="240" rx="12" fill="#171e22" stroke="#d5b45d" stroke-width="2"/>
+  <rect x="95" y="98" width="224" height="54" rx="8" fill="#244a36" stroke="#6d9b74"/>
+  <g fill="#cfd39e"><circle cx="118" cy="120" r="4"/><circle cx="143" cy="130" r="4"/><circle cx="170" cy="113" r="4"/><circle cx="203" cy="133" r="4"/><circle cx="236" cy="114" r="4"/><circle cx="276" cy="128" r="4"/></g>
+  <g transform="translate(90 178)">
+    <g fill="#2d3438" stroke="#b89b53" stroke-width="2"><rect width="57" height="104" rx="8"/><rect x="66" width="57" height="104" rx="8"/><rect x="132" width="57" height="104" rx="8"/><rect x="198" width="57" height="104" rx="8"/></g>
+    <g fill="url(#copper)"><path d="M14 8v82h8V8zM35 8v82h8V8z"/><path d="M80 8v82h8V8zM101 8v82h8V8z"/><path d="M146 8v82h8V8zM167 8v82h8V8z"/><path d="M212 8v82h8V8zM233 8v82h8V8z"/></g>
+  </g>
+  <g stroke="#12181b" stroke-width="6"><path d="M56 95v235M365 95v235"/></g>
+  <g fill="#f2c85c"><circle cx="70" cy="55" r="6"/><circle cx="348" cy="56" r="6"/><circle cx="63" cy="374" r="6"/><circle cx="352" cy="374" r="6"/></g>
+  <circle cx="385" cy="170" r="24" fill="#252c30" stroke="#cf8b1c" stroke-width="6"/><circle cx="385" cy="235" r="24" fill="#252c30" stroke="#cf8b1c" stroke-width="6"/>
+</g>
+
+<!-- PMSM -->
+<g transform="translate(1110 205)" filter="url(#shadow)">
+  <path d="M55 92h260l58 60v190l-62 61H60L20 365V128z" fill="url(#steel2)" stroke="#d0ab57" stroke-width="3"/>
+  <path d="M75 120h235l38 38v177l-43 40H74l-30-28V150z" fill="#313b40"/>
+  <g stroke="#9aa1a0" stroke-width="8"><path d="M72 140h206M66 170h220M62 200h230M60 230h235M60 260h235M62 290h230M68 320h218M77 350h195"/></g>
+  <circle cx="308" cy="248" r="118" fill="#1a2023" stroke="#b8b5a3" stroke-width="14"/>
+  <circle cx="308" cy="248" r="94" fill="#3a4246" stroke="#6f7675" stroke-width="10"/>
+  <g fill="none" stroke="url(#copper)" stroke-width="14" stroke-linecap="round">
+    <path d="M267 170c-22 12-35 34-35 58s13 46 35 58"/><path d="M284 160c-28 17-45 42-45 68s17 51 45 68"/><path d="M349 170c22 12 35 34 35 58s-13 46-35 58"/><path d="M332 160c28 17 45 42 45 68s-17 51-45 68"/>
+  </g>
+  <circle cx="308" cy="248" r="58" fill="#20262a" stroke="#bfc4bc" stroke-width="8"/>
+  <g fill="#d8d8cf"><path d="M270 204l38-18 38 18-38 18z"/><path d="M270 292l38 18 38-18-38-18z"/></g>
+  <circle cx="308" cy="248" r="30" fill="#11171a" stroke="#acb2ac" stroke-width="7"/>
+  <rect x="307" y="231" width="175" height="34" rx="11" fill="url(#steel)"/>
+  <rect x="480" y="237" width="42" height="22" rx="8" fill="#7d8584"/>
+  <path d="M115 95c8-48 20-68 48-68h116" fill="none" stroke="#222a2e" stroke-width="25" stroke-linecap="round"/>
+  <path d="M122 94c9-42 25-55 46-55h106" fill="none" stroke="#ff8f1d" stroke-width="10" stroke-linecap="round"/>
+</g>
+
+<!-- labels -->
+<g font-family="Arial,Helvetica,sans-serif" text-anchor="middle">
+  <g fill="#ffdf75" font-weight="700" font-size="26" letter-spacing="2"><text x="300" y="650">BATTERY</text><text x="800" y="650">INVERTER</text><text x="1325" y="650">PMSM DRIVE</text></g>
+  <g fill="#caa149" font-size="15" letter-spacing="3"><text x="300" y="681">HIGH-VOLTAGE ENERGY STORAGE</text><text x="800" y="681">TRACTION POWER ELECTRONICS</text><text x="1325" y="681">PERMANENT-MAGNET SYNCHRONOUS MOTOR</text></g>
+</g>
+
+<!-- control layer -->
+<g transform="translate(590 735)">
+  <rect width="420" height="95" rx="18" fill="#16191a" stroke="#bd8b26" stroke-width="2"/>
+  <g transform="translate(28 18)" stroke="#e5ae34" fill="none"><rect width="60" height="60" rx="8" stroke-width="3"/><path d="M12 20h36M12 30h36M12 40h36" stroke-width="2"/></g>
+  <path d="M130 56c28-48 51 48 80 0s51 48 80 0" fill="none" stroke="#ffd65e" stroke-width="3"/>
+  <path d="M130 56c28 26 51-26 80 0s51-26 80 0" fill="none" stroke="#8eafaf" stroke-width="2"/>
+  <g fill="#c99a36"><rect x="330" y="27" width="48" height="7" rx="3"/><rect x="330" y="44" width="34" height="7" rx="3"/><rect x="330" y="61" width="43" height="7" rx="3"/></g>
+</g>
+<path d="M300 690v68c0 20 17 36 37 36h250M800 690v45M1325 690v68c0 20-17 36-37 36h-274" fill="none" stroke="#d5a63f" stroke-width="2" stroke-dasharray="7 7" opacity=".85"/>
+<rect x="2" y="2" width="1596" height="896" rx="42" fill="none" stroke="#d9a331" stroke-opacity=".55" stroke-width="3"/>
+</svg>
