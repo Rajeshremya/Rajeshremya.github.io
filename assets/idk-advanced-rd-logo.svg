@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+<title id="title">IDK Advanced R&amp;D</title><desc id="desc">IDK Advanced R&amp;D logo with engineering waveform and motor motif</desc>
+<defs>
+  <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#051a2e"/><stop offset="0.58" stop-color="#0d65b8"/><stop offset="1" stop-color="#14c8c7"/></linearGradient>
+  <linearGradient id="g2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0a6bd0"/><stop offset="0.5" stop-color="#16d9ef"/><stop offset="1" stop-color="#ffffff"/></linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="1200" height="720" fill="#ffffff"/>
+<g fill="url(#g)">
+  <path d="M110 155h88v340h-88z"/>
+  <path d="M230 155h238c112 0 194 70 194 170s-82 170-194 170H230V358h88v64h150c61 0 102-38 102-97s-41-97-102-97H318v64h-88z"/>
+  <path d="M685 155h88v145l145-145h119L846 342l193 153H916L773 369v126h-88z"/>
+</g>
+<polyline points="200,325 332,325 352,270 382,392 412,318 440,349 460,325 688,325" fill="none" stroke="url(#g2)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+<g transform="translate(860 212)">
+  <path d="M20 105h150l52 45-52 45H20z" fill="#0a2032"/>
+  <g stroke="#ffffff" stroke-width="8"><line x1="30" y1="123" x2="150" y2="123"/><line x1="30" y1="145" x2="160" y2="145"/><line x1="30" y1="167" x2="150" y2="167"/></g>
+  <circle cx="185" cy="150" r="53" fill="#384d5b"/><circle cx="185" cy="150" r="28" fill="#ffffff"/><circle cx="185" cy="150" r="15" fill="#1b3445"/>
+  <rect x="185" y="139" width="115" height="22" rx="8" fill="#173649"/>
+  <path d="M5 50A165 165 0 0 1 300 105" fill="none" stroke="url(#g)" stroke-width="22"/>
+  <path d="M300 200A165 165 0 0 1 220 282" fill="none" stroke="#0b63b7" stroke-width="12"/>
+</g>
+<text x="600" y="590" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="74" font-weight="800" letter-spacing="16" fill="#071d31">ADVANCED R&amp;D</text>
+<line x1="150" y1="645" x2="345" y2="645" stroke="#17384f" stroke-width="3"/>
+<line x1="855" y1="645" x2="1050" y2="645" stroke="#17384f" stroke-width="3"/>
+<text x="600" y="655" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="27" letter-spacing="11" fill="#17384f">DRIVING A BETTER TOMORROW</text>
+</svg>
