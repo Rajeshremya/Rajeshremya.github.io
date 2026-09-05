@@ -13,22 +13,30 @@ if(toggle&&nav){
 const year=document.getElementById('year');
 if(year)year.textContent=new Date().getFullYear();
 
-// Public location: India only.
+// Public location and contact details.
 const indiaAddress='Kollengode, Palakkad, Kerala 678506, India';
+const publicEmails=['contact@idkadvancedrd.com','rajeshgidk@gmail.com'];
 const heroBase=document.querySelector('.hero-facts > div:first-child strong');
 if(heroBase)heroBase.textContent=indiaAddress;
 
 document.querySelectorAll('.contact-row').forEach(row=>{
   const label=row.querySelector('span');
   const value=row.querySelector('strong');
-  if(label&&value&&label.textContent.trim().toLowerCase()==='location')value.textContent=indiaAddress;
+  if(!label||!value)return;
+  const key=label.textContent.trim().toLowerCase();
+  if(key==='location')value.textContent=indiaAddress;
+  if(key==='email'){
+    value.innerHTML=`<a href="mailto:${publicEmails[0]}">${publicEmails[0]}</a><br><a href="mailto:${publicEmails[1]}">${publicEmails[1]}</a>`;
+    value.querySelectorAll('a').forEach(link=>{link.style.color='inherit';link.style.textDecoration='none';});
+  }
 });
 
-// Keep organisation structured data aligned with the India location.
+// Keep organisation structured data aligned with public contact details.
 const orgData=document.querySelector('script[type="application/ld+json"]');
 if(orgData){
   try{
     const data=JSON.parse(orgData.textContent);
+    data.email=publicEmails;
     data.telephone='+971565728483';
     data.address={
       '@type':'PostalAddress',
