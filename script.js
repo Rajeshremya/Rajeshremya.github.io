@@ -1,32 +1,79 @@
 if(!document.querySelector('link[href="forms.css"]')){const formsCss=document.createElement('link');formsCss.rel='stylesheet';formsCss.href='forms.css';document.head.appendChild(formsCss);}
-const brandLogo=document.querySelector('.brand-logo');if(brandLogo){brandLogo.src='assets/idk-advanced-rd-logo-final.webp';brandLogo.alt='IDK Advanced R&D — Driving a Better Tomorrow';}
-const toggle=document.querySelector('.menu-toggle');const nav=document.querySelector('.nav-links');if(toggle&&nav){toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');}));}
-const year=document.getElementById('year');if(year)year.textContent=new Date().getFullYear();
 
-// Public operating locations supplied by IDK Advanced R&D.
-const heroBase=document.querySelector('.hero-facts > div:first-child strong');if(heroBase){heroBase.textContent='Kollengode, Kerala, India • Mussaffah, Abu Dhabi, UAE';}
-document.querySelectorAll('.contact-row').forEach(row=>{const label=row.querySelector('span');const value=row.querySelector('strong');if(label&&value&&label.textContent.trim().toLowerCase()==='location'){value.innerHTML='India — Kollengode, Palakkad, Kerala 678506<br>UAE — Shabia 11, Mussaffah, Abu Dhabi';}});
+const brandLogo=document.querySelector('.brand-logo');
+if(brandLogo){brandLogo.src='assets/idk-advanced-rd-logo-final.webp';brandLogo.alt='IDK Advanced R&D — Driving a Better Tomorrow';}
 
-// Keep structured organisation data aligned with the two public locations.
-const orgData=document.querySelector('script[type="application/ld+json"]');if(orgData){try{const data=JSON.parse(orgData.textContent);delete data.address;data.telephone='+971565728483';data.location=[{'@type':'Place','address':{'@type':'PostalAddress','addressLocality':'Kollengode','addressRegion':'Kerala','postalCode':'678506','addressCountry':'IN'}},{'@type':'Place','address':{'@type':'PostalAddress','streetAddress':'Shabia 11, Mussaffah','addressLocality':'Abu Dhabi','addressCountry':'AE'}}];orgData.textContent=JSON.stringify(data);}catch(e){}}
+const toggle=document.querySelector('.menu-toggle');
+const nav=document.querySelector('.nav-links');
+if(toggle&&nav){
+  toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
+  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');}));
+}
 
-// WhatsApp contact.
+const year=document.getElementById('year');
+if(year)year.textContent=new Date().getFullYear();
+
+// Public location: India only.
+const indiaAddress='Kollengode, Palakkad, Kerala 678506, India';
+const heroBase=document.querySelector('.hero-facts > div:first-child strong');
+if(heroBase)heroBase.textContent=indiaAddress;
+
+document.querySelectorAll('.contact-row').forEach(row=>{
+  const label=row.querySelector('span');
+  const value=row.querySelector('strong');
+  if(label&&value&&label.textContent.trim().toLowerCase()==='location')value.textContent=indiaAddress;
+});
+
+// Keep organisation structured data aligned with the India location.
+const orgData=document.querySelector('script[type="application/ld+json"]');
+if(orgData){
+  try{
+    const data=JSON.parse(orgData.textContent);
+    data.telephone='+971565728483';
+    data.address={
+      '@type':'PostalAddress',
+      'addressLocality':'Kollengode',
+      'addressRegion':'Kerala',
+      'postalCode':'678506',
+      'addressCountry':'IN'
+    };
+    delete data.location;
+    orgData.textContent=JSON.stringify(data);
+  }catch(e){}
+}
+
+// WhatsApp contact number retained as requested.
 const waNumber='971565728483';
 const waUrl=`https://wa.me/${waNumber}?text=${encodeURIComponent('Hello IDK Advanced R&D, I would like to discuss an engineering R&D project.')}`;
 const contactCard=document.querySelector('.contact-card');
 if(contactCard&&!contactCard.querySelector('.whatsapp-contact')){
-  const waButton=document.createElement('a');waButton.className='btn btn-whatsapp btn-wide whatsapp-contact';waButton.href=waUrl;waButton.target='_blank';waButton.rel='noopener';waButton.innerHTML='<span class="wa-dot">●</span> WhatsApp +971 56 572 8483';
-  const firstButton=contactCard.querySelector('.btn');if(firstButton)firstButton.insertAdjacentElement('afterend',waButton);else contactCard.prepend(waButton);
+  const waButton=document.createElement('a');
+  waButton.className='btn btn-whatsapp btn-wide whatsapp-contact';
+  waButton.href=waUrl;
+  waButton.target='_blank';
+  waButton.rel='noopener';
+  waButton.innerHTML='<span class="wa-dot">●</span> WhatsApp +971 56 572 8483';
+  const firstButton=contactCard.querySelector('.btn');
+  if(firstButton)firstButton.insertAdjacentElement('afterend',waButton);else contactCard.prepend(waButton);
 }
+
 if(!document.querySelector('.wa-float')){
-  const float=document.createElement('a');float.className='wa-float';float.href=waUrl;float.target='_blank';float.rel='noopener';float.setAttribute('aria-label','Contact IDK Advanced R&D on WhatsApp');float.innerHTML='<svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M19.1 17.5c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-1.7-.8-2.8-1.5-3.9-3.4-.3-.5.3-.5.8-1.6.1-.2.1-.4 0-.6-.1-.2-.7-1.7-1-2.4-.3-.6-.6-.5-.8-.5h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.5c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 1.8-.7 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.1-.3-.2-.6-.3M16 27.5c-2.1 0-4.1-.6-5.8-1.6l-.4-.2-4.3 1.1 1.1-4.2-.3-.4A11.4 11.4 0 1 1 16 27.5m0-25A13.5 13.5 0 0 0 4.4 22.8L2.5 29.5l6.9-1.8A13.5 13.5 0 1 0 16 2.5"/></svg><span>WhatsApp</span>';
+  const float=document.createElement('a');
+  float.className='wa-float';
+  float.href=waUrl;
+  float.target='_blank';
+  float.rel='noopener';
+  float.setAttribute('aria-label','Contact IDK Advanced R&D on WhatsApp');
+  float.innerHTML='<svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M19.1 17.5c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-1.7-.8-2.8-1.5-3.9-3.4-.3-.5.3-.5.8-1.6.1-.2.1-.4 0-.6-.1-.2-.7-1.7-1-2.4-.3-.6-.6-.5-.8-.5h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.5c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 1.8-.7 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.1-.3-.2-.6-.3M16 27.5c-2.1 0-4.1-.6-5.8-1.6l-.4-.2-4.3 1.1 1.1-4.2-.3-.4A11.4 11.4 0 1 1 16 27.5m0-25A13.5 13.5 0 0 0 4.4 22.8L2.5 29.5l6.9-1.8A13.5 13.5 0 1 0 16 2.5"/></svg><span>WhatsApp</span>';
   document.body.appendChild(float);
 }
 
-// Add forms for project registration, document upload and general enquiries.
+// Project registration, document upload and general enquiry forms.
 const footer=document.querySelector('.site-footer');
 if(footer&&!document.getElementById('project-forms')){
-  const forms=document.createElement('section');forms.id='project-forms';forms.className='section forms-section';
+  const forms=document.createElement('section');
+  forms.id='project-forms';
+  forms.className='section forms-section';
   forms.innerHTML=`
   <div class="container">
     <div class="section-head forms-head">
