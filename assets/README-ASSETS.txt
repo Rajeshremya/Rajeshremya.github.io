@@ -1,0 +1,1 @@
+Homepage brand and hero assets refreshed on 2026-09-08.
