@@ -1,19 +1,133 @@
-if(!document.querySelector('link[href="forms.css"]')){const formsCss=document.createElement('link');formsCss.rel='stylesheet';formsCss.href='forms.css';document.head.appendChild(formsCss);}
+if(!document.querySelector('link[href="forms.css"]')){
+  const formsCss=document.createElement('link');
+  formsCss.rel='stylesheet';
+  formsCss.href='forms.css?v=20260908-ev';
+  document.head.appendChild(formsCss);
+}
 
+const CAR_IMAGE='https://commons.wikimedia.org/wiki/Special:Redirect/file/Tesla_Model_3_Front.jpg?width=1280';
+const MOTOR_IMAGE='https://commons.wikimedia.org/wiki/Special:Redirect/file/ABB_AMXM290-SBIMC2CF04_traction_motor_on_PM179_(20211214142118).jpg?width=900';
+const CAR_SOURCE='https://commons.wikimedia.org/wiki/File:Tesla_Model_3_Front.jpg';
+const MOTOR_SOURCE='https://commons.wikimedia.org/wiki/File:ABB_AMXM290-SBIMC2CF04_traction_motor_on_PM179_(20211214142118).jpg';
+
+// Brand lockup: keep the IDK wordmark and integrate a real traction-motor photograph.
+const brand=document.querySelector('.brand');
 const brandLogo=document.querySelector('.brand-logo');
-if(brandLogo){brandLogo.src='assets/idk-advanced-rd-logo-final.webp';brandLogo.alt='IDK Advanced R&D — Driving a Better Tomorrow';}
+if(brandLogo){
+  brandLogo.src='assets/idk-advanced-rd-logo.svg';
+  brandLogo.alt='IDK Advanced R&D — Driving a Better Tomorrow';
+}
+if(brand&&!brand.querySelector('.brand-motor')){
+  const motor=document.createElement('span');
+  motor.className='brand-motor';
+  motor.innerHTML=`<img src="${MOTOR_IMAGE}" alt="Electric traction motor">`;
+  brand.appendChild(motor);
+}
 
 const toggle=document.querySelector('.menu-toggle');
 const nav=document.querySelector('.nav-links');
 if(toggle&&nav){
-  toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
-  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');}));
+  toggle.addEventListener('click',()=>{
+    const open=nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded',String(open));
+  });
+  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded','false');
+  }));
 }
 
 const year=document.getElementById('year');
 if(year)year.textContent=new Date().getFullYear();
 
-// Public location and contact details.
+// Homepage hero refresh.
+const hero=document.querySelector('.hero');
+if(hero){
+  const eyebrow=hero.querySelector('.eyebrow');
+  const title=hero.querySelector('h1');
+  const lead=hero.querySelector('.hero-lead');
+  const actions=hero.querySelector('.hero-actions');
+  const tags=hero.querySelector('.hero-tags');
+  const visual=hero.querySelector('.hero-visual');
+  if(eyebrow)eyebrow.textContent='RESEARCH • MODELLING • CONTROL • REAL-WORLD IMPACT';
+  if(title)title.innerHTML='Research-Backed Engineering for <span class="hero-accent">Electrified Systems</span>';
+  if(lead)lead.textContent='From electric drives and EV systems to power electronics, control, modelling and thermal intelligence — we turn advanced research into measurable engineering outcomes.';
+  if(actions){
+    actions.innerHTML='<a class="btn btn-primary" href="#contact">Discuss a Project</a><a class="btn btn-secondary" href="#capabilities">Explore Our Capabilities</a>';
+  }
+  if(tags){
+    tags.innerHTML='<span>⚡ Cleaner Mobility</span><span>▥ Higher Performance</span><span>⚙ Engineering Impact</span><span>◒ A Brighter Tomorrow</span>';
+  }
+  if(visual){
+    visual.innerHTML=`
+      <img class="ev-hero-photo" src="${CAR_IMAGE}" alt="Electric vehicle representing IDK Advanced R&D electrified-systems engineering">
+      <div class="hero-image-label"><small>ELECTRIFICATION</small><strong>Driving a Better Tomorrow</strong></div>
+      <a class="image-credit" href="${CAR_SOURCE}" target="_blank" rel="noopener">EV photo: Darin Caggiano / Wikimedia Commons · CC BY-SA 4.0</a>`;
+  }
+}
+
+// PMSM modelling section with clear mathematical notation.
+if(hero&&!document.getElementById('pmsm-modelling')){
+  const modelling=document.createElement('section');
+  modelling.id='pmsm-modelling';
+  modelling.className='section modelling-section';
+  modelling.innerHTML=`
+    <div class="container">
+      <div class="model-intro-grid">
+        <div class="model-copy">
+          <div class="eyebrow">MODELLING THE POSSIBILITIES</div>
+          <h2><span>PMSM Modelling</span> for Real-World Performance</h2>
+          <p>Physics-based equations connect electrical dynamics, electromagnetic torque and mechanical motion. These models support controller design, simulation, optimisation and validation of electrified drive systems.</p>
+          <div class="model-flow"><span>MODEL</span><b>→</b><span>SIMULATE</span><b>→</b><span>CONTROL</span><b>→</b><span>OPTIMISE</span><b>→</b><span>VALIDATE</span></div>
+        </div>
+        <div class="model-motor-wrap">
+          <img src="${MOTOR_IMAGE}" alt="Real traction motor used as a visual reference for electric-drive modelling">
+          <div class="motor-overlay">REAL TRACTION MOTOR</div>
+        </div>
+      </div>
+
+      <div class="equation-grid" aria-label="PMSM modelling equations">
+        <article class="equation-card eq-blue">
+          <div class="eq-head"><span>01</span><strong>d-axis voltage equation</strong></div>
+          <div class="equation">\\(v_d = R_s i_d + L_d \\frac{d i_d}{dt} - \\omega_e L_q i_q\\)</div>
+          <p>Direct-axis stator voltage dynamics.</p>
+        </article>
+        <article class="equation-card eq-cyan">
+          <div class="eq-head"><span>02</span><strong>q-axis voltage equation</strong></div>
+          <div class="equation">\\(v_q = R_s i_q + L_q \\frac{d i_q}{dt} + \\omega_e(L_d i_d + \\lambda_f)\\)</div>
+          <p>Quadrature-axis voltage and back-EMF coupling.</p>
+        </article>
+        <article class="equation-card eq-gold">
+          <div class="eq-head"><span>03</span><strong>electromagnetic torque</strong></div>
+          <div class="equation">\\(T_e = \\frac{3}{2}p[\\lambda_f i_q + (L_d-L_q)i_d i_q]\\)</div>
+          <p>Torque from PM flux and reluctance contribution.</p>
+        </article>
+        <article class="equation-card eq-teal">
+          <div class="eq-head"><span>04</span><strong>mechanical dynamics</strong></div>
+          <div class="equation">\\(J\\frac{d\\omega_m}{dt} = T_e - T_L - B\\omega_m\\)</div>
+          <p>Rotor acceleration under torque, load and damping.</p>
+        </article>
+      </div>
+
+      <div class="model-values">
+        <div><b>◉</b><strong>Physics-Based Models</strong><span>From component to system level</span></div>
+        <div><b>▣</b><strong>Simulation to Reality</strong><span>Application-focused validation</span></div>
+        <div><b>◎</b><strong>Optimised Performance</strong><span>Control, thermal and efficiency aware</span></div>
+        <div><b>◒</b><strong>Sustainable Impact</strong><span>Engineering for cleaner mobility</span></div>
+      </div>
+      <div class="media-credit">Motor photo: <a href="${MOTOR_SOURCE}" target="_blank" rel="noopener">N509FZ / Wikimedia Commons</a> · CC BY-SA 4.0</div>
+    </div>`;
+  hero.insertAdjacentElement('afterend',modelling);
+
+  window.MathJax={tex:{inlineMath:[['\\(','\\)']]},svg:{fontCache:'global'}};
+  const mj=document.createElement('script');
+  mj.src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js';
+  mj.async=true;
+  mj.onload=()=>{if(window.MathJax?.typesetPromise)window.MathJax.typesetPromise([modelling]);};
+  document.head.appendChild(mj);
+}
+
+// Public contact details.
 const indiaAddress='Kollengode, Palakkad, Kerala 678506, India';
 const publicEmails=['contact@idkadvancedrd.com','rajeshgidk@gmail.com'];
 const heroBase=document.querySelector('.hero-facts > div:first-child strong');
@@ -31,26 +145,18 @@ document.querySelectorAll('.contact-row').forEach(row=>{
   }
 });
 
-// Keep organisation structured data aligned with public contact details.
 const orgData=document.querySelector('script[type="application/ld+json"]');
 if(orgData){
   try{
     const data=JSON.parse(orgData.textContent);
     data.email=publicEmails;
     data.telephone='+971565728483';
-    data.address={
-      '@type':'PostalAddress',
-      'addressLocality':'Kollengode',
-      'addressRegion':'Kerala',
-      'postalCode':'678506',
-      'addressCountry':'IN'
-    };
+    data.address={'@type':'PostalAddress','addressLocality':'Kollengode','addressRegion':'Kerala','postalCode':'678506','addressCountry':'IN'};
     delete data.location;
     orgData.textContent=JSON.stringify(data);
   }catch(e){}
 }
 
-// WhatsApp contact number retained as requested.
 const waNumber='971565728483';
 const waUrl=`https://wa.me/${waNumber}?text=${encodeURIComponent('Hello IDK Advanced R&D, I would like to discuss an engineering R&D project.')}`;
 const contactCard=document.querySelector('.contact-card');
@@ -115,7 +221,6 @@ if(footer&&!document.getElementById('project-forms')){
           <button type="submit" class="btn btn-primary form-submit">Submit Project Registration</button>
         </form>
       </div>
-
       <div class="form-card">
         <div class="form-card-head"><span>02</span><div><h3>General Enquiry</h3><p>For an introductory question, partnership discussion or request for more information.</p></div></div>
         <form class="rd-form" action="https://formsubmit.co/rajeshgidk@gmail.com" method="POST" enctype="multipart/form-data">
@@ -139,5 +244,11 @@ if(footer&&!document.getElementById('project-forms')){
     <div class="form-privacy"><strong>Submission note:</strong> These forms use a third-party form-processing service to email submissions to IDK Advanced R&D. Do not send confidential IP, passwords, financial information or controlled technical data through the public forms. For sensitive projects, contact us first to discuss confidentiality/NDA arrangements.</div>
   </div>`;
   footer.insertAdjacentElement('beforebegin',forms);
-  if(nav){const cta=nav.querySelector('.nav-cta');const link=document.createElement('a');link.href='#project-forms';link.textContent='Project Form';if(cta)nav.insertBefore(link,cta);else nav.appendChild(link);}
+  if(nav&&!nav.querySelector('a[href="#project-forms"]')){
+    const cta=nav.querySelector('.nav-cta');
+    const link=document.createElement('a');
+    link.href='#project-forms';
+    link.textContent='Project Form';
+    if(cta)nav.insertBefore(link,cta);else nav.appendChild(link);
+  }
 }
